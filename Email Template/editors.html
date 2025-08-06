@@ -1,0 +1,77 @@
+<!-- editor.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Template Editor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="logo">MailCraft</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="templates.html">Templates</a></li>
+        <li><a href="editor.html" class="active">Editor</a></li>
+        <li><a href="preview.html">Preview</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Editor Section -->
+  <section class="editor-section">
+    <div class="editor-form">
+      <h2>Edit Your Template</h2>
+      <form id="templateForm">
+        <label>Subject</label>
+        <input type="text" id="subject" placeholder="Welcome to our service!" />
+
+        <label>Header Text</label>
+        <input type="text" id="header" placeholder="Big Savings this Summer!" />
+
+        <label>Image URL</label>
+        <input type="text" id="imageURL" placeholder="Paste image link here..." />
+
+        <label>Body Message</label>
+        <textarea id="bodyText" rows="4" placeholder="Write your email message here..."></textarea>
+
+        <label>CTA Button Text</label>
+        <input type="text" id="buttonText" placeholder="Shop Now" />
+
+        <button type="button" onclick="updatePreview()">Update Preview</button>
+      </form>
+    </div>
+
+    <div class="editor-preview">
+      <h2>Live Preview</h2>
+      <div class="preview-box" id="previewBox">
+        <h3 id="previewHeader">Your Header</h3>
+        <img id="previewImage" src="https://images.unsplash.com/photo-1581092337765-00427f4d1f52" alt="Preview Image" />
+        <p id="previewBody">Your message will appear here.</p>
+        <a href="#" class="btn" id="previewButton">Click Here</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MailCraft. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function updatePreview() {
+      document.getElementById("previewHeader").innerText = document.getElementById("header").value;
+      document.getElementById("previewImage").src = document.getElementById("imageURL").value || "https://images.unsplash.com/photo-1581092337765-00427f4d1f52";
+      document.getElementById("previewBody").innerText = document.getElementById("bodyText").value;
+      document.getElementById("previewButton").innerText = document.getElementById("buttonText").value;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!-- preview.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Template Preview</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="logo">MailCraft</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="templates.html">Templates</a></li>
+        <li><a href="editor.html">Editor</a></li>
+        <li><a href="preview.html" class="active">Preview</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Preview Section -->
+  <section class="preview-section">
+    <h2>Final Preview</h2>
+
+    <div class="email-layout" id="finalEmail">
+      <h3 id="emailHeader">Thanks for Subscribing!</h3>
+      <img id="emailImage" src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Email Banner" />
+      <p id="emailBody">We're thrilled to have you on board. Expect amazing content in your inbox soon.</p>
+      <a href="#" class="btn" id="emailButton">Get Started</a>
+    </div>
+
+    <div class="preview-actions">
+      <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+      <button onclick="alert('Test email sent! (simulated)')">📧 Send Test Email</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MailCraft. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Parse query params (if passed)
+    const params = new URLSearchParams(window.location.search);
+    const header = params.get('header') || 'Thanks for Subscribing!';
+    const image = params.get('image') || 'https://images.unsplash.com/photo-1600891964599-f61ba0e24092';
+    const body = params.get('body') || 'We\'re thrilled to have you on board. Expect amazing content in your inbox soon.';
+    const button = params.get('cta') || 'Get Started';
+
+    // Apply to preview
+    document.getElementById('emailHeader').innerText = header;
+    document.getElementById('emailImage').src = image;
+    document.getElementById('emailBody').innerText = body;
+    document.getElementById('emailButton').innerText = button;
+  </script>
+
+</body>
+</html>
